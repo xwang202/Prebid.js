@@ -264,6 +264,11 @@ export const spec = {
       requestParams._fw_gdpr_consented_providers = currentBidRequest.params.gdpr_consented_providers;
     }
 
+    // Add CCPA consent string
+    if (currentBidRequest.params._fw_us_privacy) {
+      requestParams._fw_us_privacy = currentBidRequest.params._fw_us_privacy;
+    }
+
     var vastParams = currentBidRequest.params.vastUrlParams;
     if (typeof vastParams === 'object') {
       for (var key in vastParams) {
