@@ -363,6 +363,13 @@ export const spec = {
         netRevenue: true,
         ttl: 360
       };
+
+      var mediaTypes = bidrequest.mediaTypes || {};
+      if (mediaTypes.video) {
+        bidResponse.vastXml = serverResponse;
+        bidResponse.mediaType = 'video';
+      }
+
       bidResponse.ad = formatAdHTML(bidrequest, playerSize);
       bidResponses.push(bidResponse);
     }
